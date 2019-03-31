@@ -1,0 +1,51 @@
+// 清除浮动
+.clearfix:after {
+  content: " ";
+  display: block;
+  height: 0;
+  font-size: 0;
+  clear: both;
+}
+
+// disabled
+.disabled {
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  cursor: default;
+  -ms-pointer-events: none;
+  pointer-events: none;
+}
+
+// 文字无法选中
+.unselect {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+// 隐藏
+.none {
+  display: none;
+}
+
+.hidden {
+  overflow: hidden;
+}
+
+.visible {
+  visibility: hidden;
+}
+
+// 可见
+.block {
+  display: block;
+}
+
+.hidden {
+  overflow: auto;
+}
+
+.visible {
+  visibility: visible;
+}

@@ -1,0 +1,17 @@
+doctype html
+html(lang="zh-CN")
+  head
+    meta(charset="utf-8")
+    title= pageTitle
+    meta(name="apple-mobile-web-app-capable" content="yes")
+    meta(name="apple-touch-fullscreen" content="yes")
+    meta(name="format-detection",content="telephone=no,email=no")
+    meta(name="App-Config",content="fullscreen=yes,useHistoryState=yes,transition=yes")
+    meta(name="keywords" content="")
+    meta(name="description" content="")
+    block css
+    //- H5 才需要用到
+    include ../widget/pdr
+  body
+    block content
+    block script
