@@ -13,7 +13,7 @@
 - images 压缩图片
 - sprites 合并雪碧图
 - watchs 自动监听文件变化
-- serve 静态服务器
+- gulp-connect 实现热更新+自动刷新页面
 - clean 清楚文件和文件夹
 
 # 安装gulp4.0版本

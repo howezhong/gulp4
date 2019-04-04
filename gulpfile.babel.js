@@ -230,16 +230,16 @@ function imgToSprites(path, filename) {
 
   let cssStream = spriteData.css
     .pipe(dest(spriteConfig.css))
-      .pipe(connect.reload());
-      // .pipe(reload({
-      //   stream: true
-      // }));
+    .pipe(connect.reload());
+  // .pipe(reload({
+  //   stream: true
+  // }));
 
   return merge(imgStream, cssStream);
 }
 
 // 合并雪碧图
-function sprites (cb) {
+function sprites(cb) {
   if (spriteConfig.isOpen) {
     let folders = getFolders(spriteConfig.srcPath);
     imgToSprites(`${spriteConfig.srcPath}/*.png`, 'sprite')
@@ -268,7 +268,7 @@ function watchs(cb) {
 }
 
 // 架设静态服务器
-function serve() {
+function serve(cb) {
   // browserSync({
   //   files: ['**'],
   //   // server: {
@@ -284,6 +284,7 @@ function serve() {
     root: '',
     livereload: true
   });
+  cb();
 }
 
 // 用来在压缩后的JS、CSS文件中添加头部注释
