@@ -21,3 +21,7 @@ yarn-error.log*
 *.sw*
 
 package-lock.jsonss
+
+cache
+dist
+src/sass/sprite/

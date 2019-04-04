@@ -9,7 +9,8 @@ import {
 } from 'gulp';
 import fs from 'fs'
 import path from 'path'
-import browserSync from 'browser-sync';
+// import browserSync from 'browser-sync';
+import connect from 'gulp-connect';
 import pug from 'gulp-pug';
 import plumber from 'gulp-plumber';
 import htmlmin from 'gulp-htmlmin';
@@ -28,7 +29,7 @@ import changed from 'gulp-changed'; // 只操作有过修改的文件
 import del from 'del';
 import fileinclude from 'gulp-file-include';
 import header from 'gulp-header'; // 给文件头部添加注释
-const reload = browserSync.reload;
+// const reload = browserSync.reload;
 // 配置文件
 import {
   srcPath,
@@ -63,9 +64,10 @@ function css(cb) {
     }))
     .pipe(sourcemaps.write('../../../cache'))
     .pipe(dest(destPath.css))
-    .pipe(reload({
-      stream: true
-    }));
+    // .pipe(reload({
+    //   stream: true
+    // }));
+    .pipe(connect.reload());
   cb();
 }
 
@@ -90,9 +92,10 @@ function pugTohtml(cb) {
     }))
     .pipe(changed(destPath.pug))
     .pipe(dest(destPath.pug))
-    .pipe(reload({
-      stream: true
-    }));
+    // .pipe(reload({
+    //   stream: true
+    // }));
+    .pipe(connect.reload());
   cb();
 }
 
@@ -107,9 +110,10 @@ function html(cb) {
       indent: true // 保留缩进
     }))
     .pipe(dest(destPath.html))
-    .pipe(reload({
-      stream: true
-    }));
+    // .pipe(reload({
+    //   stream: true
+    // }));
+    .pipe(connect.reload());
   cb();
 }
 
@@ -132,9 +136,10 @@ function script(cb) {
     }))
     .pipe(sourcemaps.write('../../../cache'))
     .pipe(dest(destPath.script))
-    .pipe(reload({
-      stream: true
-    }));
+    // .pipe(reload({
+    //   stream: true
+    // }));
+    .pipe(connect.reload());
   cb();
 }
 
@@ -169,9 +174,10 @@ function images(cb) {
       }] // 不要移除svg的viewbox属性
     }))
     .pipe(dest(destPath.image))
-    .pipe(reload({
-      stream: true
-    }));
+    // .pipe(reload({
+    //   stream: true
+    // }));
+    .pipe(connect.reload());
   cb();
 }
 
@@ -224,9 +230,10 @@ function imgToSprites(path, filename) {
 
   let cssStream = spriteData.css
     .pipe(dest(spriteConfig.css))
-    .pipe(reload({
-      stream: true
-    }));
+      .pipe(connect.reload());
+      // .pipe(reload({
+      //   stream: true
+      // }));
 
   return merge(imgStream, cssStream);
 }
@@ -252,7 +259,7 @@ function watchs(cb) {
   watch('src/views/**/*.html', html);
   watch('src/js/**/*.js', script);
   watch('src/images/**/*.+(png|jpg|jpeg|gif|svg)', {
-    // eventTypes: 'all', // 查看事件属性
+    // events: 'all', // 查看事件属性
     // ignoreInitial: false, // 在调用时watch(), 任务不会执行, 而是等待第一次文件更改了才会执行, 因此设置false后一运行就会执行
     // queue: true, // 每个都watch()保证其当前运行的任务不会同时再次执行, 禁用排队 false, 默认true
     // delay: 200 // 延迟执行, 默认200
@@ -262,14 +269,20 @@ function watchs(cb) {
 
 // 架设静态服务器
 function serve() {
-  browserSync({
-    files: ['**'],
-    server: {
-      baseDir: './', // 设置服务器的根目录
-      // index: '' // 指定默认打开的文件
-    },
-    open: false, // 停止自动打开浏览器
-    // prot: 2019 // 默认3000
+  // browserSync({
+  //   files: ['**'],
+  //   // server: {
+  //   //   baseDir: './', // 设置服务器的根目录
+  //   //   // index: '' // 指定默认打开的文件
+  //   // },
+  //   open: false, // 停止自动打开浏览器
+  //   server: true
+  //   // prot: 3001 // 默认3000
+  // });
+
+  connect.server({
+    root: '',
+    livereload: true
   });
 }
 
