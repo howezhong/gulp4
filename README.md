@@ -20,8 +20,8 @@
 - [gulp 英文官网](https://gulpjs.com/)
 - [gulp 中文官网](https://www.gulpjs.com.cn/)
 ```
-npm install --global gulp-cli
-npm install --save-dev gulp
+npm install gulp-cli -g
+npm install gulp -D
 gulp -v
 ```
 
@@ -30,14 +30,19 @@ gulp -v
 # clone the project
 git clone https://github.com/howezhong/gulp4.git
 
-// install dependencies
+cd gulp
+
+# If gulp is installed ignore
+npm install gulp-cli -g
+
+# install dependencies
 npm install
 
-// develop
+# develop
 gulp
 ```
 
-# 描述
+# 概要
 ```
 1.字体文件fonts基本上都是经过优化的, 因此直接放assets/fonts里
 2.依赖的类库(library)不处理
