@@ -1,13 +1,17 @@
 {
   "name": "gulp4",
   "version": "1.0.0",
-  "description": "",
+  "description": "Multi-page automation building tool based on gulp4.0",
   "main": "gulpfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "keywords": [
+    "gulp4",
+    "Multipage",
+    "gulp"
+  ],
+  "author": {
+    "name": "zhonghw",
+    "email": "214206783@qq.com"
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.3.4",
