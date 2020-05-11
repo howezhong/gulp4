@@ -19,12 +19,6 @@
 // 引入动态计算html font-size script
 // @@include("../../components/flexible.html")
 
-
-/**
- * 需要进一步改善的:
- * 怎么根据不同的雪碧图目录名称生成不同的雪碧图, 如home目录里的图标则生成的雪碧图名称为home.png; howe目录里的图片则生成howe.png
- */
-
 // function serve() {
 //   browserSync.init({
 //     proxy: "你的域名或IP"
