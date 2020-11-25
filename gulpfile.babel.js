@@ -46,7 +46,7 @@ function css(cb) {
       console.error('Error!', err.message); // 显示错误信息
     }))
     .pipe(autoprefixer({
-      browsers: ['last 2 versions', '> 5%', 'ie >= 8'],
+      overrideBrowserslist: ["defaults", "not ie < 11", '> 1%', 'last 2 versions'],
       cascade: true, // 是否美化格式 默认：true 像这样：
       //-webkit-transform: rotate(45deg);
       //        transform: rotate(45deg);
